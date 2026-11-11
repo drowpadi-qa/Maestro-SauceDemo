@@ -1,0 +1,7 @@
+
+appId: com.saucelabs.mydemoapp.android
+
+---
+- launchApp
+
+- assertVisible: "Products"

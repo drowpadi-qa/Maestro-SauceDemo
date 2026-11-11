@@ -1,0 +1,15 @@
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Generated test reports
+reports/*
+
+# Temporary files
+*.log
+*.tmp
+
+# Operating system files
+.DS_Store
+Thumbs.db
