@@ -1,0 +1,28 @@
+name: Maestro Intentional Failure Demo
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  intentional-failure:
+    name: Demonstrate Test Failure Detection
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run intentional failure test on Maestro Cloud
+        uses: mobile-dev-inc/action-maestro-cloud@v3.0.1
+        with:
+          api-key: ${{ secrets.MAESTRO_API_KEY }}
+          project-id: ${{ secrets.MAESTRO_PROJECT_ID }}
+          app-file: app/saucedemo.apk
+          workspace: .maestro-failure
+          device-model: pixel_6
+          device-os: android-35
+          name: Intentional Failure Demo
